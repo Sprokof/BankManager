@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<body>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Login Page</title>
+</head>
+<div class="container">
+    <div class = "row">
+        <div class="col-md-6 col-md-offset-3">
+            <form autocomplete="off" action="#" th:action="@{/save}"
+                  th:object="${client}" method="post" class="form-horizontal"
+                  role="form">
+                <h3>Create new Client</h3>
+                        <input type="text" th:field="${client.firstName}" placeholder="First name"
+                               class="form-control"/><br>
+                    <input type = "text" th:field = "${client.secondName}" placeholder="Second name"
+                    class = "form-control"><br>
+                <input type ="text" th:field = "${client.patronymic}" placeholder="Patronymic"
+                class = "form-control"><br>
+                <input type = "text" th:field = "${client.email}" placeholder="Email"
+                class = "form-control"><br>
+                <label th:if = "${#fields.hasErrors()}" th:erorr = "${client.email}"></label>
+
+                <input type = "text" th:field = "${client.phoneNumber}" placeholder="Phone number"
+                class="form-control"><br>
+
+                <label th:if = "${#fields.hasErrors()}" th:erorr = "${client.phoneNumber}"></label>
+
+                <input type = "text" th:field ="${client.passportNumber}" placeholder="Passport number"
+                class = "form-control"><br>
+                <label th:if = "${#fields.hasErrors()}" th:erorr = "${client.passportNumber}"></label>
+
+                <button class = "btn btn-lg btn-primary btn-block" name="Submit" value="Save"
+                        type="Submit"> Save client</button>
+            </form>
+                    </div>
+                </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
