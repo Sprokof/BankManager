@@ -32,8 +32,21 @@ public class Client {
     @Column(name = "PASSPORT_NUMBER")
     private String passportNumber;
 
-    @OneToMany(mappedBy = "CLIENTS")
-    private List<Credit> credits = new ArrayList<>();
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+    private List<Credit> credits;
+
+    public void addCredit(Credit credit){
+        if(this.credits == null) this.credits = new ArrayList<>();
+        this.credits.add(credit);
+        credit.setClient(this);
+    }
+
+    public void removeCredit(Credit credit){
+        this.credits.remove(credit);
+        credit.setClient(null);
+    }
 
     public Client(String firstName, String secondName,
                   String patronymic, String phoneNumber, String email, String passportNumber){

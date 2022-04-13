@@ -23,8 +23,15 @@ public class ClientController {
     @RequestMapping(value = "/save", method = RequestMethod.GET)
     public ModelAndView saveClient(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("save");
+        modelAndView.setViewName("saveClient");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/credit/save", method = RequestMethod.GET)
+        public ModelAndView credit(){
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("saveCredit");
+            return modelAndView;
     }
 
 
@@ -41,7 +48,7 @@ public class ClientController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("client", new Client());
         ClientServiceImpl.newClientService().saveClient(client);
-        modelAndView.setViewName("save");
+        modelAndView.setViewName("saveClient");
         return modelAndView;
 
     }

@@ -34,4 +34,8 @@ public class CreditServiceImpl implements CreditService{
     public void deleteCreditById(int id) {
         this.deleteCredit(this.getCreditById(id));
     }
+
+    public static CreditServiceImpl newCreditService(){
+        return new CreditServiceImpl();
+    }
 }

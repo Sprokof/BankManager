@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "CREDITS")
@@ -20,9 +22,10 @@ public class Credit {
     @Column(name = "PERCENTAGES")
     private double percentages;
 
-    @ManyToOne
-    @JoinColumn(name = "credit_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
+
 
     public Credit(int creditsLimit, double percentages) {
         this.creditsLimit = creditsLimit;
